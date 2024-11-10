@@ -1,1 +1,93 @@
-<p>manage-packages works!</p>
+<div class="container">
+    <h1></h1>
+    <br>
+    <h1></h1>
+    <div class="label">
+        <h1 class="bg-primary-subtle text-center p-2 text-dark">Add Package</h1>
+    </div>
+    <h1></h1>
+    <br>
+    <h1></h1>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="description" [(ngModel)]="user.description">
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" placeholder="price" [(ngModel)]="user.price">
+    </div>
+    <div class="mb-3">
+        <label for="lisenceType" class="form-label">Lisence Type</label>
+        <input type="text" class="form-control" id="lisenceType" placeholder="Lisence Type" [(ngModel)]="user.lisenceType">
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
+    </div>
+</div>
+
+<h1></h1>
+<br>
+<h1></h1>
+<div class="label">
+    <h1 class="bg-primary-subtle text-center p-2 text-dark">Manage Package</h1>
+</div>
+<h1></h1>
+<br>
+<h1></h1>
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Count</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Lisence Type</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let user of userList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.description}}</td>
+            <td>{{user.price}}</td>
+            <td>{{user.lisenceType}}</td>
+            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateUser(user)"><i
+                        class="bi bi-pencil-square"></i></button>
+                &nbsp;
+                <button class="btn btn-danger" (click)="deleteUserById(user.id)"><i
+                        class="bi bi-trash3-fill"></i></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Package here!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">ID</label>
+                    <input type="text" class="form-control" id="recipient-name" disabled="true" [(ngModel)]="userTemp.id">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Description</label>
+                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.description">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Price</label>
+                    <input type="number" class="form-control" id="recipient-name" [(ngModel)]="userTemp.price">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Lisence Type</label>
+                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.lisenceType">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveUser()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
