@@ -1,1 +1,135 @@
-<p>manage-instructor works!</p>
+<app-header></app-header>
+<div class="container">
+    <h1></h1>
+    <br>
+    <h1></h1>
+    <div class="label">
+        <h1 class="bg-primary-subtle text-center p-2 text-dark">Add Instructor</h1>
+    </div>
+    <h1></h1>
+    <br>
+    <h1></h1>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="name" [(ngModel)]="user.name">
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" id="address" rows="3" placeholder="address" [(ngModel)]="user.address"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="email" [(ngModel)]="user.email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="password" [(ngModel)]="user.password">
+    </div>
+    <div class="mb-3">
+        <label for="birthday" class="form-label">Birthday</label>
+        <input type="date" class="form-control" id="dob" placeholder="birthday" [(ngModel)]="user.dob">
+    </div>
+    <div class="mb-3">
+        <label for="contact" class="form-label">Contact Number</label>
+        <input type="number" class="form-control" id="contactNumber" placeholder="Contact Number" [(ngModel)]="user.contactNumber">
+    </div>
+    <div class="mb-3">
+        <label for="contact" class="form-label">Experienced Years</label>
+        <input type="number" class="form-control" id="experiencedYears" placeholder="Experienced Years" [(ngModel)]="user.experiencedYears">
+    </div>
+    <div class="mb-3">
+        <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
+    </div>
+</div>
+
+<h1></h1>
+<br>
+<h1></h1>
+<div class="label">
+    <h1 class="bg-primary-subtle text-center p-2 text-dark">Manage Instructor</h1>
+</div>
+<h1></h1>
+<br>
+<h1></h1>
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Count</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Birthday</th>
+            <th>Contact Number</th>
+            <th>Experienced Years</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let user of userList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.dob}}</td>
+            <td>{{user.contactNumber}}</td>
+            <td>{{user.experiencedYears}}</td>
+            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateUser(user)"><i
+                        class="bi bi-pencil-square"></i></button>
+                &nbsp;
+                <button class="btn btn-danger" (click)="deleteUserById(user.id)"><i
+                        class="bi bi-trash3-fill"></i></button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Student here!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">ID</label>
+                    <input type="text" class="form-control" id="recipient-name" disabled="true" [(ngModel)]="userTemp.id">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.name">
+                </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Address</label>
+                    <textarea class="form-control" id="message-text" [(ngModel)]="userTemp.address"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Email</label>
+                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.email">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Password</label>
+                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.password">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Birthday</label>
+                    <input type="date" class="form-control" id="recipient-name" [(ngModel)]="userTemp.dob">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Contact Number</label>
+                    <input type="number" class="form-control" id="recipient-name" [(ngModel)]="userTemp.contactNumber">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Experienced Years</label>
+                    <input type="number" class="form-control" id="recipient-name" [(ngModel)]="userTemp.experiencedYears">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveUser()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
