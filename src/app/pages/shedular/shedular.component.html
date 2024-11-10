@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="left">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev" (click)="prevMonth()"></i>
+          <div class="date">{{ monthName }} {{ year }}</div>
+          <i class="fas fa-angle-right next" (click)="nextMonth()"></i>
+        </div>
+        <div class="weekdays">
+          <div *ngFor="let day of weekdays">{{ day }}</div>
+        </div>
+        <div class="days">
+          <div *ngFor="let day of days" 
+               class="day"
+               [class.today]="day.isToday" 
+               [class.active]="day.isActive"
+               [class.prev-date]="day.isPrevDate" 
+               [class.next-date]="day.isNextDate" 
+               (click)="selectDay(day)">
+            {{ day.date }}
+          </div>
+        </div>
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" [(ngModel)]="inputDate" class="date-input" />
+            <button class="goto-btn" (click)="gotoDate()">Go</button>
+          </div>
+          <button class="today-btn" (click)="goToToday()">Today</button>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="today-date">
+        <div class="event-day">{{ activeDayName }}</div>
+        <div class="event-date">{{ activeDate }}</div>
+      </div>
+      <div class="events">
+        <div *ngIf="events.length === 0" class="no-event">
+          <h3>No Events</h3>
+        </div>
+        <div *ngFor="let event of events" class="event" (click)="deleteEvent(event)">
+          <div class="title">
+            <i class="fas fa-circle"></i>
+            <h3 class="event-title">{{ event.title }}</h3>
+          </div>
+          <div class="event-time">{{ event.time }}</div>
+        </div>
+      </div>
+      <div class="add-event-wrapper" [class.active]="showAddEvent">
+        <div class="add-event-header">
+          <div class="title">Add Event</div>
+          <i class="fas fa-times close" (click)="toggleAddEvent()"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Name" [(ngModel)]="newEventTitle" class="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time From" [(ngModel)]="newEventTimeFrom" class="event-time-from" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time To" [(ngModel)]="newEventTimeTo" class="event-time-to" />
+          </div>
+        </div>
+        <div class="add-event-footer">
+          <button class="add-event-btn" (click)="addEvent()">Add Event</button>
+        </div>
+      </div>
+    </div>
+    <button class="add-event" (click)="toggleAddEvent()">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  
