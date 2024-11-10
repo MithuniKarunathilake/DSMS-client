@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7faff;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2rem;
+}
+
+.logo img {
+    width: 90px;
+    margin-bottom: 1rem;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #4a90e2;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+}
+
+button {
+    padding: 1rem;
+    background: linear-gradient(to right, #4a90e2, #61b6f2);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #61b6f2, #4a90e2);
+}
+
+a {
+    color: #4a90e2;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.terms {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Design for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+    .container {
+        max-width: 400px;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+}
+
+/* Smaller Mobile Screens */
+@media (max-width: 480px) {
+    .container {
+        max-width: 90%;
+        padding: 1rem;
+    }
+}
+
+/* Centering on Desktop Screens */
+@media (min-width: 769px) {
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 500px;
+    }
+}

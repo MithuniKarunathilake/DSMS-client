@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="logo">
+        <img class="logo" src="" alt="Logo">
+        <h1>Safety Learners</h1>
+    </div>
+    <h2>Create an account</h2>
+    <p>Schedule your driving lessons and notify about your exams.</p>
+    <form action="#" method="POST">
+        <input type="text" placeholder="Full name" required [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+        <input type="email" placeholder="Email" required [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+        <input type="password" placeholder="Password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+        <input type="password" placeholder="Confirm Password" required [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
+        <button type="submit" (click)="save()">Confirm</button>
+    </form>
+</div>
