@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,7 @@ export class RegisterComponent {
   password: string = "";
   confirmPassword: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router,private http: HttpClient) { }
 
   save() {
     let bodyData = {
@@ -27,7 +29,22 @@ export class RegisterComponent {
     };
     this.http.post("http://localhost:8080/employee/save", bodyData, { responseType: 'text' }).subscribe((resultData: any) => {
       console.log(resultData);
-      alert("Employee Registered Successfully");
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+      });
+      this.router.navigate(['login']);
     });
 
     this.clearFields();

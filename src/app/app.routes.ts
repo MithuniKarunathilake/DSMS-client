@@ -8,18 +8,19 @@ import { ManagePackagesComponent } from './pages/manage-packages/manage-packages
 import { ShedularComponent } from './pages/shedular/shedular.component';
 
 export const routes: Routes = [
+    
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     {
         path: 'home',
         component: HomeComponent,
 
     },
     {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
 
-        path: 'register',
+        path: '',
         component: RegisterComponent,
     },
     {

@@ -8,7 +8,7 @@
     <form action="#">
         <input type="email" placeholder="Email" required [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
         <input type="password" placeholder="Password" required [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-        <button type="submit" routerLink="home">Login</button>
+        <button type="submit" routerLink="home" (click)="login()">Login</button>
         <a href="#" routerLink="home">Forgot login details?</a>
     </form>
 </div>
