@@ -1,9 +1,101 @@
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-        <h1 class="fade-in">Driving Schools can be hard</h1>
-        <h2 class="fade-in-delay">Safety dive makes it easier</h2>
-        <p class="fade-in-more">Unlock your potential and manage your classes, tasks, and exams with Safety Drive – the world’s #1 driving planner and shedule organizer app.</p>
-        <button class="get-started">Get Started</button>
+<div class="app">
+
+  <nav class="navbar fixed top-0 w-full bg-blue-800 text-white shadow-md z-50">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <img src="../../../assets/images/Safety.png" alt="DriveSmart Logo" class="h-10 w-auto"> 
+        <a href="#home" class="text-2xl font-bold">DriveSmart</a>
+      </div>
+
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="hover:text-blue-300">Home</a></li>
+        <li><a href="#features" class="hover:text-blue-300">Features</a></li>
+        <li><a href="#testimonials" class="hover:text-blue-300">Testimonials</a></li>
+        <li><a href="#about-us" class="hover:text-blue-300">About Us</a></li>
+        <li><a href="#faq" class="hover:text-blue-300">FAQs</a></li>
+        <li><button class="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700" (click)="signIn()">Sign In</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section
+    id="home"
+    class="hero bg-cover bg-center h-screen text-white flex items-center justify-center"
+    style="background-image: url('../../../assets/images/bacground.jpg');">
+    <div class="text-center px-6">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to DriveSmart</h1>
+      <p class="text-lg mb-6">Your ultimate driving school management solution.</p>
+      <a href="#features" class="bg-blue-500 px-6 py-3 rounded text-white hover:bg-blue-600">Explore Features</a>
     </div>
   </section>
+
+  <section id="features" class="py-20 bg-gray-100">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">Key Features</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="text-center bg-white p-6 rounded shadow-md">
+          <i class="fas fa-calendar-alt text-blue-500 text-4xl mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Schedule Management</h3>
+          <p>Organize classes with ease using our smart scheduling tools.</p>
+        </div>
+        <div class="text-center bg-white p-6 rounded shadow-md">
+          <i class="fas fa-credit-card text-blue-500 text-4xl mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Payment Integration</h3>
+          <p>Secure and seamless payment options for students.</p>
+        </div>
+        <div class="text-center bg-white p-6 rounded shadow-md">
+          <i class="fas fa-chart-line text-blue-500 text-4xl mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Progress Tracking</h3>
+          <p>Track student progress and generate detailed reports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="py-20 bg-blue-50">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">What Our Students Say</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-white p-6 rounded shadow-md">
+          <p class="mb-4">"The scheduling feature has saved me so much time!"</p>
+          <h4 class="font-bold text-lg">- John Doe, New York</h4>
+        </div>
+        <div class="bg-white p-6 rounded shadow-md">
+          <p class="mb-4">"I loved the progress tracking feature. It kept me motivated."</p>
+          <h4 class="font-bold text-lg">- Jane Smith, California</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-us" class="py-20 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">About Us</h2>
+      <p>DriveSmart is your go-to platform for managing driving schools. From scheduling classes to tracking progress and integrating payments, we offer everything you need to run a smooth operation.</p>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 bg-blue-50">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+      <div class="accordion">
+        <div class="question mb-4">
+          <h3 class="font-bold text-xl mb-2">How can I sign up?</h3>
+          <p>Click on the "Sign In" button above and follow the steps to create an account.</p>
+        </div>
+        <div class="question">
+          <h3 class="font-bold text-xl mb-2">Is the platform secure?</h3>
+          <p>Yes, we use state-of-the-art encryption to secure all user data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-blue-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>© 2024 DriveSmart. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</div>

@@ -6,6 +6,7 @@ import { ManageStudentComponent } from './pages/manage-student/manage-student.co
 import { ManageInstructorComponent } from './pages/manage-instructor/manage-instructor.component';
 import { ManagePackagesComponent } from './pages/manage-packages/manage-packages.component';
 import { ShedularComponent } from './pages/shedular/shedular.component';
+import { ConnectComponent } from './pages/connect/connect.component';
 
 export const routes: Routes = [
     
@@ -14,13 +15,13 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'home',
+        path: '',
         component: HomeComponent,
 
     },
     {
 
-        path: '',
+        path: 'register',
         component: RegisterComponent,
     },
     {
@@ -39,8 +40,11 @@ export const routes: Routes = [
         component: ManagePackagesComponent,
     },
     {
-
         path: 'shedular',
         component: ShedularComponent,
+    },
+    {
+        path: 'connect',
+        component: ConnectComponent,
     }
 ];

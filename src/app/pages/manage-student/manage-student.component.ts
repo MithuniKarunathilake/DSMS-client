@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../common/header/header.component';
 @Component({
   selector: 'app-manage-student',
   standalone: true,
-  imports: [FormsModule, CommonModule,HeaderComponent],
+  imports: [FormsModule, CommonModule, HeaderComponent],
   templateUrl: './manage-student.component.html',
   styleUrl: './manage-student.component.css'
 })
@@ -19,13 +19,13 @@ export class ManageStudentComponent {
     password: "",
     dob: "",
     contactNumber: "",
-    image: null 
+    image: null
   };
 
   public userList: any[] = [];
   public userTemp: any = {};
   private file: File | null = null;
-constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.loadTable();
   }
 
@@ -52,6 +52,7 @@ constructor(private http: HttpClient) {
       },
       error: (err) => console.error(err)
     });
+    this.clearFields();
   }
 
   loadTable(): void {
@@ -91,5 +92,17 @@ constructor(private http: HttpClient) {
       },
       error: (err) => console.error(err)
     });
+  }
+
+  clearFields(): void {
+    this.user = {
+      name: '',
+      address: '',
+      email: '',
+      password: '',
+      dob: '',
+      contactNumber: '',
+      image: null
+    };
   }
 }

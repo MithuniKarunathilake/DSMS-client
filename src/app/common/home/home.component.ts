@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,19 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+  constructor(private router: Router){}
+
+  ngOnInit(): void {
+    if(typeof document !== 'undefined'){
+      AOS.init({
+        duration:1000
+      });
+    }
+  }
+
+  signIn(){
+    this.router.navigate(['/register']);
+  }
 
 }

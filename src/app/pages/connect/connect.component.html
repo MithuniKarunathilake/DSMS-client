@@ -1,0 +1,71 @@
+<app-header></app-header>
+<br>
+<br>
+<div class="container">
+    <br>
+
+  <div class="mb-3">
+    <label for="instructor" class="form-label">Instructor</label>
+    <select id="instructor" class="form-select" [(ngModel)]="schedule.instructorId">
+      <option *ngFor="let instructor of instructors" [value]="instructor.id">
+        {{ instructor.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="student" class="form-label">Student</label>
+    <select id="student" class="form-select" [(ngModel)]="schedule.studentId">
+      <option *ngFor="let student of students" [value]="student.id">
+        {{ student.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="package" class="form-label">Package</label>
+    <select id="package" class="form-select" [(ngModel)]="schedule.packageId">
+      <option *ngFor="let package of packages" [value]="package.packageId">
+        {{ package.description }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="date" class="form-label">Date</label>
+    <input type="date" id="date" class="form-control" [(ngModel)]="schedule.date">
+  </div>
+
+  <div class="mb-3">
+    <label for="time" class="form-label">Time</label>
+    <input type="time" id="time" class="form-control" [(ngModel)]="schedule.time">
+  </div>
+
+  <button class="btn btn-primary" (click)="createSchedule()">Create Schedule</button>
+
+  <hr>
+
+  <h2>Schedules</h2>
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Count</th>
+        <th>Instructor</th>
+        <th>Student</th>
+        <th>Package</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schedule of schedules; let i = index" class="text-center">
+        <td>{{ i + 1 }}</td>
+        <td>{{ schedule.instructorName }}</td>
+        <td>{{ schedule.studentName }}</td>
+        <td>{{ schedule.packageDescription }}</td>
+        <td>{{ schedule.date }}</td>
+        <td>{{ schedule.time }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

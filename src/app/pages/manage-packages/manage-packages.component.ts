@@ -68,16 +68,15 @@ export class ManagePackagesComponent {
       lisenceType:""
     };
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient){
+    this.loadTable();
+  }
 
   public addUser(){
     this.http.post("http://localhost:8080/package/add-package",this.user).subscribe((data)=>{
         alert("Package Added!!!!");
     })
-  }
-
-  clearFields(){
-    
+    this.loadTable();
   }
 
   public userList:any=[];
