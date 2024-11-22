@@ -1,135 +1,112 @@
 <app-header></app-header>
-<div class="container">
-    <h1></h1>
+<div class="container py-4">
+    <!-- Button to Open Modal -->
     <br>
-    <h1></h1>
-    <div class="label">
-        <h1 class="bg-primary-subtle text-center p-2 text-dark">Add Instructor</h1>
-    </div>
-    <h1></h1>
     <br>
-    <h1></h1>
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="name" [(ngModel)]="user.name">
+    <div class="text-center d-flex justify-content-end" >
+      <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#addInstructorModal" style="background-color: rgb(63, 171, 249);">
+        + Add Instructor
+      </button>
     </div>
-    <div class="mb-3">
-        <label for="address" class="form-label">Address</label>
-        <textarea class="form-control" id="address" rows="3" placeholder="address" [(ngModel)]="user.address"></textarea>
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="email" [(ngModel)]="user.email">
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="password" [(ngModel)]="user.password">
-    </div>
-    <div class="mb-3">
-        <label for="birthday" class="form-label">Birthday</label>
-        <input type="date" class="form-control" id="dob" placeholder="birthday" [(ngModel)]="user.dob">
-    </div>
-    <div class="mb-3">
-        <label for="contact" class="form-label">Contact Number</label>
-        <input type="number" class="form-control" id="contactNumber" placeholder="Contact Number" [(ngModel)]="user.contactNumber">
-    </div>
-    <div class="mb-3">
-        <label for="contact" class="form-label">Experienced Years</label>
-        <input type="number" class="form-control" id="experiencedYears" placeholder="Experienced Years" [(ngModel)]="user.experiencedYears">
-    </div>
-    <div class="mb-3">
-        <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
-    </div>
-</div>
-
-<h1></h1>
-<br>
-<h1></h1>
-<div class="label">
-    <h1 class="bg-primary-subtle text-center p-2 text-dark">Manage Instructor</h1>
-</div>
-<h1></h1>
-<br>
-<h1></h1>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="addInstructorModal" tabindex="-1" aria-labelledby="addInstructorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header custom-header">
+              <h5 class="modal-title" id="addInstructorModalLabel">Add Instructor</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body custom-body">
+              <form>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" id="address" rows="3" placeholder="Address" [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="dob" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" id="dob" placeholder="Birthday" [(ngModel)]="user.dob" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="contactNumber" class="form-label">Contact Number</label>
+                    <input type="number" class="form-control" id="contactNumber" placeholder="Contact Number" [(ngModel)]="user.contactNumber" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="experiencedYears" class="form-label">Experienced Years</label>
+                    <input type="number" class="form-control" id="experiencedYears" placeholder="Experienced Years" [(ngModel)]="user.experiencedYears" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="image" class="form-label">Profile Image</label>
+                  <input type="file" class="form-control" id="image" (change)="onFileChange($event)">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer custom-footer">
+              <button type="button" class="btn btn-primary" (click)="addUser()">Add Instructor</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  </div>
+  
 
 <div class="container">
-    <table class="table table-bordered table-hover">
-        <tr>
+  <div class="card shadow">
+    <div class="card-header text-white text-center" style="background-color: rgb(63, 171, 249);">
+      <h2>Manage Instructor</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr class="bg-light text-center">
             <th>Count</th>
             <th>ID</th>
             <th>Name</th>
             <th>Address</th>
             <th>Email</th>
-            <th>Password</th>
-            <th>Birthday</th>
-            <th>Contact Number</th>
-            <th>Experienced Years</th>
+            <th>Image</th>
             <th>Actions</th>
-        </tr>
-        <tr *ngFor="let user of userList; index as i">
-            <td>{{i+1}}</td>
-            <td>{{user.id}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.password}}</td>
-            <td>{{user.dob}}</td>
-            <td>{{user.contactNumber}}</td>
-            <td>{{user.experiencedYears}}</td>
-            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateUser(user)"><i
-                        class="bi bi-pencil-square"></i></button>
-                &nbsp;
-                <button class="btn btn-danger" (click)="deleteUserById(user.id)"><i
-                        class="bi bi-trash3-fill"></i></button>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList; index as i" class="text-center">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.email }}</td>
+            <td><img [src]="user.filePath" alt="Profile" class="img-thumbnail" width="50"></td>
+            <td>
+              <button class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="saveUser()">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteUserById(user.id)">
+                <i class="bi bi-trash"></i>
+              </button>
             </td>
-        </tr>
-    </table>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Student here!</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">ID</label>
-                    <input type="text" class="form-control" id="recipient-name" disabled="true" [(ngModel)]="userTemp.id">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Name</label>
-                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.name">
-                </div>
-                <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Address</label>
-                    <textarea class="form-control" id="message-text" [(ngModel)]="userTemp.address"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Email</label>
-                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.email">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Password</label>
-                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.password">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Birthday</label>
-                    <input type="date" class="form-control" id="recipient-name" [(ngModel)]="userTemp.dob">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Contact Number</label>
-                    <input type="number" class="form-control" id="recipient-name" [(ngModel)]="userTemp.contactNumber">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Experienced Years</label>
-                    <input type="number" class="form-control" id="recipient-name" [(ngModel)]="userTemp.experiencedYears">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveUser()">Update</button>
-            </div>
-        </div>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

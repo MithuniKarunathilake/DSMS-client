@@ -1,0 +1,14 @@
+.custom-header {
+    background-color: rgb(63, 171, 249);
+    color: white; 
+  }
+  
+  .custom-body {
+    background-color: rgb(131, 203, 254);
+    padding: 20px;
+  }
+  
+  .custom-footer {
+    background-color: rgb(63, 171, 249);
+    color: white; 
+  }

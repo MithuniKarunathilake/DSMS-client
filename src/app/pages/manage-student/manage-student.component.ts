@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../common/header/header.component';
@@ -7,7 +7,7 @@ import { HeaderComponent } from '../../common/header/header.component';
 @Component({
   selector: 'app-manage-student',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule,HeaderComponent],
+  imports: [FormsModule, CommonModule,HeaderComponent],
   templateUrl: './manage-student.component.html',
   styleUrl: './manage-student.component.css'
 })
@@ -18,60 +18,78 @@ export class ManageStudentComponent {
     email: "",
     password: "",
     dob: "",
-    contactNumber: ""
+    contactNumber: "",
+    image: null 
   };
 
-  constructor(private http: HttpClient) {
+  public userList: any[] = [];
+  public userTemp: any = {};
+  private file: File | null = null;
+constructor(private http: HttpClient) {
     this.loadTable();
   }
 
-  public addUser() {
-    this.http.post("http://localhost:8080/student/add-student", this.user).subscribe((data) => {
-      alert("User Added!!!!");
-    })
-    this.clearFields();
+  onFileChange(event: any): void {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      this.file = selectedFile;
+    }
   }
 
-  clearFields() {
-    this.user = {
-      name: '',
-      address: '',
-      email: '',
-      password: '',
-      dob: '',
-      contactNumber: ''
-    };
+  addUser(): void {
+    const formData = new FormData();
+    Object.keys(this.user).forEach((key) => {
+      formData.append(key, this.user[key]);
+    });
+    if (this.file) {
+      formData.append('file', this.file);
+    }
+
+    this.http.post('http://localhost:8080/student/add-student', formData).subscribe({
+      next: () => {
+        alert('Student added successfully!');
+        this.loadTable();
+      },
+      error: (err) => console.error(err)
+    });
   }
 
-  public userList: any = [];
-
-  loadTable() {
-    this.http.get("http://localhost:8080/student/get-student").subscribe(data => {
-      console.log(data);
-      this.userList = data;
-    })
+  loadTable(): void {
+    this.http.get('http://localhost:8080/student/get-student').subscribe({
+      next: (data: any) => (this.userList = data),
+      error: (err) => console.error(err)
+    });
   }
 
-  deleteUserById(id: any) {
-    console.log(id);
-
-    this.http.delete(`http://localhost:8080/student/delete-student/${id}`).subscribe(data => {
-      alert("User deleted !!!!");
-      this.loadTable();
-    })
-
-  }
-  public userTemp: any = {}
-  updateUser(user: any) {
-    console.log(user);
-    this.userTemp = user;
-
+  deleteUserById(id: any): void {
+    this.http.delete(`http://localhost:8080/student/delete-student/${id}`).subscribe({
+      next: () => {
+        alert('Student deleted successfully!');
+        this.loadTable();
+      },
+      error: (err) => console.error(err)
+    });
   }
 
-  saveUser() {
-    this.http.put("http://localhost:8080/student/update-student", this.userTemp).subscribe(data => {
-      alert("User Updated!!!!!")
-    })
+  updateUser(user: any): void {
+    this.userTemp = { ...user };
   }
 
+  saveUser(): void {
+    const formData = new FormData();
+    Object.keys(this.userTemp).forEach((key) => {
+      formData.append(key, this.userTemp[key]);
+    });
+    if (this.file) {
+      formData.append('file', this.file);
+    }
+
+    this.http.put('http://localhost:8080/student/update-student', formData).subscribe({
+      next: () => {
+        alert('Student updated successfully!');
+        this.loadTable();
+      },
+      error: (err) => console.error(err)
+    });
+  }
 }

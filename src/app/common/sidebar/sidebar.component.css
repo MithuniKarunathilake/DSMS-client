@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    background-color: #f9f9f9;
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #ddd;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width:90%;
+    margin-bottom: 20px;
+    background-color: #0036a3;
+
+}
+
+.logo h1 {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #4a90e2;
+}
+
+.nav-menu {
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: #e0ebff;
+    border-radius: 5px;
+    color: #4a90e2;
+}
+
+
+.login {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login:hover {
+    background-color: #0036a3;
+}
+
+.signup {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup:hover {
+    background-color: #0036a3;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.toggle {
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.slider {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: left 0.3s;
+}
+
+.data-import {
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    background-color: #ccc;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .logo h1 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+}

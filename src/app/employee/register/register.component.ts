@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink} from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, HttpClientModule, CommonModule],
+  imports: [FormsModule,HttpClientModule, CommonModule,RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -44,7 +44,7 @@ export class RegisterComponent {
         icon: "success",
         title: "Signed in successfully"
       });
-      this.router.navigate(['login']);
+      this.router.navigate(['/login']);
     });
 
     this.clearFields();

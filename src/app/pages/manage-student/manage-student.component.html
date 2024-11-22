@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div class="container">
     <h1></h1>
     <br>
@@ -122,4 +122,118 @@
             </div>
         </div>
     </div>
+</div> -->
+
+
+<app-header></app-header>
+<div class="container py-4">
+    <!-- Button to Open Modal -->
+    <br>
+    <br>
+    <div class="text-center d-flex justify-content-end" >
+      <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#addStudentModal" style="background-color: rgb(63, 171, 249);">
+        + Add Student
+      </button>
+    </div>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header custom-header">
+              <h5 class="modal-title" id="addStudentModalLabel">Add Student</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body custom-body">
+              <form>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" rows="3" placeholder="Address" [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}"></textarea>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label for="dob" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" id="dob" placeholder="Birthday" [(ngModel)]="user.dob" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="contactNumber" class="form-label">Contact Number</label>
+                    <input type="number" class="form-control" id="contactNumber" placeholder="Contact Number" [(ngModel)]="user.contactNumber" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="image" class="form-label">Profile Image</label>
+                  <input type="file" class="form-control" id="image" (change)="onFileChange($event)">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer custom-footer">
+              <button type="button" class="btn btn-primary" (click)="addUser()">Add Student</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  </div>
+  
+
+<div class="container">
+  <div class="card shadow">
+    <div class="card-header text-white text-center" style="background-color: rgb(63, 171, 249);">
+      <h2>Manage Student</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr class="bg-light text-center">
+            <th>Count</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Contact</th>
+            <th>Image</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList; index as i" class="text-center">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.dob }}</td>
+            <td>{{ user.contactNumber }}</td>
+            <td><img [src]="user.filePath" alt="Profile" class="img-thumbnail" width="50"></td>
+            <td>
+              <button class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="saveUser()">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteUserById(user.id)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

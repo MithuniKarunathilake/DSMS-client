@@ -1,0 +1,32 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    border-radius: 12px;
+  }
+  
+  .card-header {
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .img-thumbnail {
+    border-radius: 50%;
+  }
+  
+.custom-header {
+    background-color: rgb(63, 171, 249);
+    color: white; 
+  }
+  
+  .custom-body {
+    background-color: rgb(131, 203, 254);
+    padding: 20px;
+  }
+  
+  .custom-footer {
+    background-color: rgb(63, 171, 249);
+    color: white; 
+  }
+  

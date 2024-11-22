@@ -1,20 +1,21 @@
+<app-header></app-header>
 <div class="container">
     <h1></h1>
     <br>
     <h1></h1>
     <div class="label">
-        <h1 class="bg-primary-subtle text-center p-2 text-dark">Add Package</h1>
+        <h1 class="bg-primary-subtle text-center p-2 text-dark">Add User Page</h1>
     </div>
     <h1></h1>
     <br>
     <h1></h1>
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <input type="text" class="form-control" id="description" placeholder="description" [(ngModel)]="user.description">
+        <input type="text" class="form-control" id="description" placeholder="Description" [(ngModel)]="user.description">
     </div>
     <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" placeholder="price" [(ngModel)]="user.price">
+        <input type="number" class="form-control" id="price" placeholder="Price" [(ngModel)]="user.price">
     </div>
     <div class="mb-3">
         <label for="lisenceType" class="form-label">Lisence Type</label>
@@ -29,7 +30,7 @@
 <br>
 <h1></h1>
 <div class="label">
-    <h1 class="bg-primary-subtle text-center p-2 text-dark">Manage Package</h1>
+    <h1 class="bg-primary-subtle text-center p-2 text-dark">Manage User Page</h1>
 </div>
 <h1></h1>
 <br>
@@ -39,6 +40,7 @@
     <table class="table table-bordered table-hover">
         <tr>
             <th>Count</th>
+            <th>ID</th>
             <th>Description</th>
             <th>Price</th>
             <th>Lisence Type</th>
@@ -64,7 +66,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Package here!</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Customer here!</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -77,11 +79,11 @@
                     <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.description">
                 </div>
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Price</label>
-                    <input type="number" class="form-control" id="recipient-name" [(ngModel)]="userTemp.price">
+                    <label for="recipient-name" class="col-form-label">Email</label>
+                    <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.price">
                 </div>
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Lisence Type</label>
+                    <label for="recipient-name" class="col-form-label">Password</label>
                     <input type="text" class="form-control" id="recipient-name" [(ngModel)]="userTemp.lisenceType">
                 </div>
             </div>
